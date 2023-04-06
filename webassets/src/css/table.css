@@ -1,0 +1,23 @@
+table {
+  border-collapse: collapse;
+  margin: 16px;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 4px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr.odd {
+  background-color: #f9f9f9;
+}
+
+tr.even {
+  background-color: #e5e5e5;
+}

@@ -29,3 +29,12 @@ body {
     background-color: var(--background);
     color: var(--color);
 }
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; /* use system fonts */
+}
+
+pre code {
+    white-space: pre-wrap; /* This forces the text to wrap to fit the container */
+    overflow-wrap: break-word; /* This forces the text to wrap at word boundaries */
+}

@@ -15,7 +15,7 @@ open class MarkdownView: UIView {
     return webView?.isLoading == true
   }
   
-  private var intrinsicContentHeight: CGFloat? {
+  public var intrinsicContentHeight: CGFloat? {
     didSet {
       self.invalidateIntrinsicContentSize()
     }

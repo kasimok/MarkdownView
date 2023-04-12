@@ -35,6 +35,22 @@ body {
 }
 
 pre code {
-    white-space: pre-wrap; /* This forces the text to wrap to fit the container */
-    overflow-wrap: break-word; /* This forces the text to wrap at word boundaries */
+  border-radius: 6px;
+  white-space: pre-wrap; /* This forces the text to wrap to fit the container */
+  overflow-wrap: break-word; /* This forces the text to wrap at word boundaries */
+}
+
+blockquote {
+  border-left: 4px solid #696969;
+  color: #6a737d;
+  padding: 0 15px;
+  margin: 20px 0;
+  font-size: 18px;
+  font-style: italic;
+}
+blockquote p:first-child {
+  margin-top: 0;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
 }

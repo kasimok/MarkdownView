@@ -1,6 +1,5 @@
 import hljs from "highlight.js";
 import MarkdownIt from "markdown-it";
-import emoji from "markdown-it-emoji";
 import MarkdownItTaskLists from 'markdown-it-task-lists';
 import MarkdownItMultimdTable from 'markdown-it-multimd-table';
 import katex from '@iktakahiro/markdown-it-katex';

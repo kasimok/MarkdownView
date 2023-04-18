@@ -1,6 +1,6 @@
 import SwiftUI
 
-public final class MarkdownUI: UIViewRepresentable {
+public struct Markdown: UIViewRepresentable {
   private let markdownView: MarkdownView
   
   @Binding public var body: String
@@ -11,18 +11,18 @@ public final class MarkdownUI: UIViewRepresentable {
     self.markdownView.isScrollEnabled = false
   }
   
-  public func onTouchLink(perform action: @escaping ((URLRequest) -> Bool)) -> MarkdownUI {
+  public func onTouchLink(perform action: @escaping ((URLRequest) -> Bool)) -> Markdown {
     self.markdownView.onTouchLink = action
     return self
   }
   
-  public func onRendered(perform action: @escaping ((CGFloat) -> Void)) -> MarkdownUI {
+  public func onRendered(perform action: @escaping ((CGFloat) -> Void)) -> Markdown {
     self.markdownView.onRendered = action
     return self
   }
 }
 
-extension MarkdownUI {
+extension Markdown {
   
   public func makeUIView(context: Context) -> MarkdownView {
     return markdownView

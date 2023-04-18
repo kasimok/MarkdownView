@@ -10,6 +10,7 @@ open class MarkdownView: UIView {
   
   private var webView: WKWebView?
   private var updateHeightHandler: UpdateHeightHandler?
+  //private var summaryExpandHandler: UpdateSummaryExpandStatusHandler?
   
   public var isLoading:Bool{
     return webView?.isLoading == true
@@ -47,6 +48,9 @@ open class MarkdownView: UIView {
     if let handler = updateHeightHandler {
       configuration.userContentController.add(handler, name: "updateHeight")
     }
+//    if let collapsedHandler = summaryExpandHandler{
+//      configuration.userContentController.add(collapsedHandler, name: "summaryExpanded")
+//    }
     self.webView = makeWebView(with: configuration)
     self.webView?.load(URLRequest(url: styled ? Self.styledHtmlUrl : Self.nonStyledHtmlUrl))
   }
@@ -59,7 +63,13 @@ open class MarkdownView: UIView {
       self?.onRendered?(height)
       self?.intrinsicContentHeight = height
     }
+//
+//    let summaryExpandedHandler = UpdateSummaryExpandStatusHandler { [weak self] collapsed in
+//      debugPrint("collapsed: \(collapsed)")
+//      self?.intrinsicContentHeight = 0
+//    }
     self.updateHeightHandler = updateHeightHandler
+//    self.summaryExpandHandler = summaryExpandedHandler
   }
   
   public required init?(coder aDecoder: NSCoder) {
@@ -88,6 +98,9 @@ extension MarkdownView {
     if let handler = updateHeightHandler {
       configuration.userContentController.add(handler, name: "updateHeight")
     }
+//    if let collapsedHandler = summaryExpandHandler{
+//      configuration.userContentController.add(collapsedHandler, name: "summaryExpanded")
+//    }
     self.webView = makeWebView(with: configuration)
     self.webView?.load(URLRequest(url: styled ? Self.styledHtmlUrl : Self.nonStyledHtmlUrl))
   }
@@ -164,6 +177,23 @@ private class UpdateHeightHandler: NSObject, WKScriptMessageHandler {
     }
   }
 }
+
+//private class UpdateSummaryExpandStatusHandler: NSObject, WKScriptMessageHandler {
+//  var onCollapse: ((Bool) -> Void)
+//
+//  init(onCollapse: @escaping (Bool) -> Void) {
+//    self.onCollapse = onCollapse
+//  }
+//
+//  public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+//    switch message.name {
+//    default:
+//      if let collapsed = message.body as? Bool {
+//        self.onCollapse(collapsed)
+//      }
+//    }
+//  }
+//}
 
 // MARK: - Scripts
 

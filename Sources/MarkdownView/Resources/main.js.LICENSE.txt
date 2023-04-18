@@ -5776,8 +5776,6 @@ module.exports = function text(state, silent) {
 
 // 'ī': '\u0131\u0304', // enable when we add Extended Latin
 
-// (!) Some patterns skipped, to avoid collisions
-
 // () => {} is more typical in TypeScript
 
 // (?!_) cause 1.5x slowdown
@@ -5845,12 +5843,6 @@ module.exports = function text(state, silent) {
 // - abstract member definitions in classes: abstract Property : int * string
 
 // - fractionals 1/2, 1/4, 3/4 -> ½, ¼, ¾
-
-// - http://en.wikipedia.org/wiki/List_of_emoticons#Western
-
-// - http://factoryjoe.com/projects/emoticons/
-
-// - https://github.com/wooorm/emoticon/blob/master/Support.md
 
 // - miltiplication 2 x 4 -> 2 × 4
 
@@ -5993,8 +5985,6 @@ module.exports = function text(state, silent) {
 // ::=
 
 // :=
-
-// :\ and :-\ not used because of conflict with markdown escaping
 
 // < and > turn into \langle and \rangle in delimiters
 
@@ -6181,8 +6171,6 @@ module.exports = function text(state, silent) {
 // Add it to the beginning of the expression
 
 // Add it to the end of the expression.
-
-// Add new tokens to pending list
 
 // Add size-resetting classes to the inner list and set maxFontSize
 
@@ -6666,8 +6654,6 @@ module.exports = function text(state, silent) {
 
 // Convert from document ems to viewBox.
 
-// Convert input options to more useable format
-
 // Convert straight quotation marks to typographic ones
 
 // Convert the input in UCS-2 to an array of Unicode code points.
@@ -6800,10 +6786,6 @@ module.exports = function text(state, silent) {
 
 // Don't allow break if \nobreak among the post-operator glue.
 
-// Don't allow letters after any shortcut
-
-// Don't allow letters before any shortcut (as in no ":/" in http://)
-
 // Don't allow single-level domains, because of false positives like '//test'
 
 // Don't confuse with unicode punctuation !!! It lacks some chars in ascii range.
@@ -6839,10 +6821,6 @@ module.exports = function text(state, silent) {
 // Element names can contain letters, digits, hyphens, underscores, and periods
 
 // Emits a 'removeListener' event if and only if the listener was removed.
-
-// Emojies & shortcuts replacement logic.
-
-// Emoticons -> Emoji mapping.
 
 // Empty delimiters in \left and \right make null delimiter spaces.
 
@@ -6918,8 +6896,6 @@ module.exports = function text(state, silent) {
 
 // Filter disabled & fake schemas
 
-// Filter emojies by whitelist, if needed
-
 // Final arg is the expansion of the macro
 
 // Final result should be uppercased, because it's later stored in an object
@@ -6959,8 +6935,6 @@ module.exports = function text(state, silent) {
 // First, we do the same steps as in overline to build the inner group
 
 // Flag the module as loaded
-
-// Flatten shortcuts to simple object: { alias: emoji_name }
 
 // Float
 
@@ -7215,8 +7189,6 @@ module.exports = function text(state, silent) {
 // If match for this delimiter run failed, we want to set lower bound for
 
 // If nesting level exceeded - skip tail to the end. That's not ordinary
-
-// If no definitions are given, return empty regex to avoid replacements with 'undefined'.
 
 // If not supported schema check requested - terminate
 
@@ -7680,8 +7652,6 @@ module.exports = function text(state, silent) {
 
 // Note: 1000:1 ratio of viewBox to document em width.
 
-// Note: In theory, it could be faster to parse :smile: in inline chain and
-
 // Note: The comments on the `throw` lines are intentional, they show
 
 // Note: calling defineFunction with a type that's already been defined only
@@ -7847,8 +7817,6 @@ module.exports = function text(state, silent) {
 // Permission is hereby granted, free of charge, to any person obtaining a
 
 // Pick the desired surd glyph from a sequence of surds.
-
-// Places to look for more emoticons info:
 
 // Predefined color names are all missed by this RegEx pattern.
 
@@ -8159,8 +8127,6 @@ module.exports = function text(state, silent) {
 // Sinhala (0D80–0DFF)
 
 // Sized delimiters are never centered.
-
-// Skip aliases for filtered emojies, to reduce regexp
 
 // Skip char codes from given position
 
@@ -8768,8 +8734,6 @@ module.exports = function text(state, silent) {
 
 // VHDL-2008 block commenting.
 
-// Validate emoji name
-
 // Value types
 
 // Variadic parameter
@@ -9355,8 +9319,6 @@ module.exports = function text(state, silent) {
 // and align row should be exactly the same (the rest of the rows can differ)
 
 // and alphanumeric chars is percent-encoded.
-
-// and compile search regexp
 
 // and contents are set in \displaystyle.
 
@@ -10762,8 +10724,6 @@ module.exports = function text(state, silent) {
 
 // least six spaces in the beginning
 
-// leave only shortcuts here. But, who care...
-
 // leaves them as text (needed to merge with adjacent text) or turns them
 
 // left for the future implementation.
@@ -11387,8 +11347,6 @@ module.exports = function text(state, silent) {
 // replace backslashes with forward slashes.
 
 // replace current node
-
-// replace shortcut with full name
 
 // replace the placeholder with the indicated argument
 
@@ -12070,8 +12028,6 @@ module.exports = function text(state, silent) {
 
 // try to scan for link with schema - that's the most simple rule
 
-// twemoji shows question
-
 // twoheadleftarrow is from glyph U+219E in font KaTeX AMS Regular
 
 // types
@@ -12317,8 +12273,6 @@ module.exports = function text(state, silent) {
 // without EXPANSION
 
 // without expanding it; let’s call this token t. Then TeX reads the
-
-// without increase matcher complicity. Than can change in future.
 
 // without limitation the rights to use, copy, modify, merge, publish,
 

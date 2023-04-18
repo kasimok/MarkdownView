@@ -33,7 +33,6 @@ const postDocumentHeight = () => {
 };
 
 markdown
-.use(emoji)
 .use(MarkdownItTaskLists)
 .use(katex)
 .use(MarkdownItMultimdTable,{
@@ -156,6 +155,18 @@ window.showMarkdown = (percentEncodedMarkdown, enableImage = true, incremental =
     
     addCopyButtonsToPreElements();
     
-    
     postDocumentHeight();
+  
+    document.querySelectorAll('summary').forEach(function(summary) {
+      summary.addEventListener('click', function() {
+        if (summary.open) {
+          window?.webkit?.messageHandlers?.summaryExpanded?.postMessage(true);
+          console.log("Summary open")
+        } else {
+          window?.webkit?.messageHandlers?.summaryExpanded?.postMessage(false);
+          console.log("Summary close")
+        }
+        setTimeout(postDocumentHeight, 100); // Add a 100 millisecond delay
+      });
+    });
 };

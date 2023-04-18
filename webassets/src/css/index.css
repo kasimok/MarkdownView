@@ -38,3 +38,11 @@ pre code {
     white-space: pre-wrap; /* This forces the text to wrap to fit the container */
     overflow-wrap: break-word; /* This forces the text to wrap at word boundaries */
 }
+
+blockquote {
+  border-left: 2px solid #ccc;
+  margin: 0;
+  padding-left: 8px;
+  color: #777;
+  font-style: italic;
+}

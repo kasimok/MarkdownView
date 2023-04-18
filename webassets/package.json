@@ -19,7 +19,6 @@
     "babel-core": "*",
     "highlight.js": "*",
     "markdown-it": "*",
-    "markdown-it-emoji": "*",
     "markdown-it-task-lists": "*",
     "markdown-it-multimd-table": "*",
     "markdown-it-incremental-dom": "*",

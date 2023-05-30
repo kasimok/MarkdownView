@@ -43,6 +43,7 @@ open class MarkdownView: UIView {
     self.init(frame: .zero)
     
     let configuration = WKWebViewConfiguration()
+    configuration.websiteDataStore = .nonPersistent()
     configuration.userContentController = makeContentController(css: css, plugins: plugins, stylesheets: stylesheets, markdown: nil, enableImage: nil)
     if let handler = updateHeightHandler {
       configuration.userContentController.add(handler, name: "updateHeight")
@@ -84,6 +85,7 @@ extension MarkdownView {
     
     self.webView?.removeFromSuperview()
     let configuration = WKWebViewConfiguration()
+    configuration.websiteDataStore = .nonPersistent()
     configuration.userContentController = makeContentController(css: css, plugins: plugins, stylesheets: stylesheets, markdown: markdown, enableImage: enableImage)
     if let handler = updateHeightHandler {
       configuration.userContentController.add(handler, name: "updateHeight")

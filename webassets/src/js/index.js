@@ -34,7 +34,6 @@ const postDocumentHeight = () => {
 };
 
 markdown
-.use(emoji)
 .use(MarkdownItTaskLists)
 .use(katex)
 .use(MarkdownItMultimdTable,{

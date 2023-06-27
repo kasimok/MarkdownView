@@ -1,6 +1,6 @@
 import UIKit
 import WebKit
-
+import OSLog
 /**
  Markdown View for iOS.
  
@@ -31,6 +31,9 @@ open class MarkdownView: UIView {
   
   @objc public var onRendered: ((CGFloat) -> Void)?
   
+  private var markdownText: String
+  private var css: String?
+  
   public convenience init() {
     self.init(frame: .zero)
   }
@@ -53,6 +56,7 @@ open class MarkdownView: UIView {
   }
   
   override init (frame: CGRect) {
+    self.markdownText = ""
     super.init(frame : frame)
     
     let updateHeightHandler = UpdateHeightHandler { [weak self] height in
@@ -64,6 +68,7 @@ open class MarkdownView: UIView {
   }
   
   public required init?(coder aDecoder: NSCoder) {
+    self.markdownText = ""
     super.init(coder: aDecoder)
   }
 }
@@ -82,7 +87,8 @@ extension MarkdownView {
   /// If you want to preserve already applied css or plugins, use `show` instead.
   @objc public func load(markdown: String?, enableImage: Bool = true, css: String? = nil, plugins: [String]? = nil, stylesheets: [URL]? = nil, styled: Bool = true) {
     guard let markdown = markdown else { return }
-    
+    self.markdownText = markdown
+    self.css = css
     self.webView?.removeFromSuperview()
     let configuration = WKWebViewConfiguration()
     configuration.websiteDataStore = .nonPersistent()
@@ -96,6 +102,7 @@ extension MarkdownView {
   
   public func show(markdown: String) {
     guard let webView = webView else { return }
+    self.markdownText = markdown
     let escapedMarkdown = self.escape(markdown: markdown) ?? ""
     let script = "window.showMarkdown('\(escapedMarkdown)', true);"
     webView.evaluateJavaScript(script) { _, error in
@@ -104,29 +111,6 @@ extension MarkdownView {
     }
   }
   
-  /*
-  public func simulateTouchEvent(at point: CGPoint) {
-    let clickX = point.x
-    let clickY = point.y
-    // Set up the JavaScript command to simulate a touch event
-    let clickCommand = """
-        var element = document.elementFromPoint(\(clickX), \(clickY));
-        var event = new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true,
-            view: window,
-            clientX: \(clickX),
-            clientY: \(clickY)
-        });
-        element.dispatchEvent(event);
-    """
-    debugPrint(point)
-    // Execute the JavaScript command in the WKWebView
-    webView?.evaluateJavaScript(clickCommand) { obj, err in
-      debugPrint("\(#function): error: ", err ?? "no error")
-    }
-  }
-  */
 }
 
 // MARK: - WKNavigationDelegate
@@ -145,8 +129,15 @@ extension MarkdownView: WKNavigationDelegate {
     default:
       decisionHandler(.allow)
     }
-    
   }
+  
+  
+  public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+    // When the web process crashes(typically due to memory pressure), the WKWebView will typically display a blank or distorted view, and any JavaScript or other web content running in the view will stop executing. To recover from this situation, you can try reloading the web content by calling the reload() method on the WKWebView.
+    Logger.webViewLogger.error("webViewWebContentProcessDidTerminate: reloading from cache...")
+    self.load(markdown: markdownText,css: css)
+  }
+  
 }
 
 // MARK: -

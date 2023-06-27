@@ -135,6 +135,7 @@ extension MarkdownView: WKNavigationDelegate {
   public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
     // When the web process crashes(typically due to memory pressure), the WKWebView will typically display a blank or distorted view, and any JavaScript or other web content running in the view will stop executing. To recover from this situation, you can try reloading the web content by calling the reload() method on the WKWebView.
     Logger.webViewLogger.error("webViewWebContentProcessDidTerminate: reloading from cache...")
+    self.onRendered = nil // Clear on renderred closure.
     self.load(markdown: markdownText,css: css)
   }
   

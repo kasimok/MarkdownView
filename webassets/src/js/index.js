@@ -1,4 +1,4 @@
-// import hljs from "highlight.js";
+const hljs = require('highlight.js/highlight.min.js');
 import MarkdownIt from "markdown-it";
 import MarkdownItTaskLists from 'markdown-it-task-lists';
 import MarkdownItMultimdTable from 'markdown-it-multimd-table';

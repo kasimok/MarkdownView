@@ -214,6 +214,84 @@ module.exports = function text(state, silent) {
 
 /* “”‘’ */
 
+/*!
+  Highlight.js v11.7.0 (git: 82688fad18)
+  (c) 2006-2022 undefined and other contributors
+  License: BSD-3-Clause
+ */
+
+/*! `bash` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `c` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `cpp` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `csharp` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `css` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `diff` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `go` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `graphql` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `ini` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `java` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `javascript` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `json` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `kotlin` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `less` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `lua` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `makefile` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `markdown` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `objectivec` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `perl` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `php-template` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `php` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `plaintext` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `python-repl` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `python` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `r` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `ruby` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `rust` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `scss` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `shell` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `sql` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `swift` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `typescript` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `vbnet` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `wasm` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `xml` grammar compiled for Highlight.js 11.7.0 */
+
+/*! `yaml` grammar compiled for Highlight.js 11.7.0 */
+
 /**
      * An array of attribute name/value pairs, used for quickly diffing the
      * incomming attributes to see if the DOM node's attributes need to be
@@ -2381,6 +2459,8 @@ module.exports = function text(state, silent) {
 
 // Execute the module function
 
+// Experimental. List of chars, completely prohibited in links
+
 // Expose utils & helpers for easy acces from plugins
 
 // Fake record for guessed links
@@ -2979,6 +3059,8 @@ module.exports = function text(state, silent) {
 
 // basically, this is the equivalent of /^[-:|][-:|\s]*$/ regexp
 
+// because can separate it from other part of text
+
 // because emails enclosed in quotes are far more common
 
 // because, if they are pointing at the same token, replaceAt
@@ -3194,10 +3276,6 @@ module.exports = function text(state, silent) {
 // if we still have not hit it, then the entire thing is a host.
 
 // implementation from standard node.js 'util' module
-
-// import hljs from "highlight.js";
-
-// import katex from '@iktakahiro/markdown-it-katex';
 
 // in all copies or substantial portions of the Software.
 

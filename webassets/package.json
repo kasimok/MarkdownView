@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "babel-core": "*",
-    "highlight.js": "file:./highlight",
+    "highlight.js": "file:highlightjs-cdn-assets-11.7.0.tgz",
     "markdown-it": "*",
     "markdown-it-task-lists": "*",
     "markdown-it-multimd-table": "*",

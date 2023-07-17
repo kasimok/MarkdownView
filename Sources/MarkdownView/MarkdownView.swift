@@ -107,7 +107,9 @@ extension MarkdownView {
     let script = "window.showMarkdown('\(escapedMarkdown)', true);"
     webView.evaluateJavaScript(script) { _, error in
       guard let error = error else { return }
-      print("[MarkdownView][Error] \(error)")
+      let userInfo = (error as NSError).userInfo
+      let exceptionMessage = userInfo["WKJavaScriptExceptionMessage"] as? String ?? "NA"
+      Logger.webViewLogger.error("[MarkdownView][Error] \(error), exceptionMessage: \(exceptionMessage)")
     }
   }
   

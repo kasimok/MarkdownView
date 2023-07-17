@@ -17,12 +17,11 @@
   },
   "dependencies": {
     "babel-core": "*",
-    "highlight.js": "*",
+    "highlight.js": "file:./highlight",
     "markdown-it": "*",
     "markdown-it-task-lists": "*",
     "markdown-it-multimd-table": "*",
     "markdown-it-incremental-dom": "*",
-    "@iktakahiro/markdown-it-katex": "*",
     "incremental-dom": "*"
   }
 }

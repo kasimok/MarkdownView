@@ -1,8 +1,8 @@
-import hljs from "highlight.js";
+// import hljs from "highlight.js";
 import MarkdownIt from "markdown-it";
 import MarkdownItTaskLists from 'markdown-it-task-lists';
 import MarkdownItMultimdTable from 'markdown-it-multimd-table';
-import katex from '@iktakahiro/markdown-it-katex';
+// import katex from '@iktakahiro/markdown-it-katex';
 import * as IncrementalDOM from 'incremental-dom';
 import MarkdownItIncrementalDOM from 'markdown-it-incremental-dom';
 
@@ -35,7 +35,7 @@ const postDocumentHeight = () => {
 
 markdown
 .use(MarkdownItTaskLists)
-.use(katex)
+//.use(katex)
 .use(MarkdownItMultimdTable,{
 multiline:  false,
 rowspan:    false,

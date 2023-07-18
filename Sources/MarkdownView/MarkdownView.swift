@@ -52,6 +52,7 @@ open class MarkdownView: UIView {
       configuration.userContentController.add(handler, name: "updateHeight")
     }
     self.webView = makeWebView(with: configuration)
+    if #available(iOS 16.4, *) { self.webView?.isInspectable = true }
     self.webView?.load(URLRequest(url: styled ? Self.styledHtmlUrl : Self.nonStyledHtmlUrl))
   }
   
@@ -97,6 +98,7 @@ extension MarkdownView {
       configuration.userContentController.add(handler, name: "updateHeight")
     }
     self.webView = makeWebView(with: configuration)
+    if #available(iOS 16.4, *) { self.webView?.isInspectable = true }
     self.webView?.load(URLRequest(url: styled ? Self.styledHtmlUrl : Self.nonStyledHtmlUrl))
   }
   
@@ -107,7 +109,9 @@ extension MarkdownView {
     let script = "window.showMarkdown('\(escapedMarkdown)', true);"
     webView.evaluateJavaScript(script) { _, error in
       guard let error = error else { return }
-      print("[MarkdownView][Error] \(error)")
+      let userInfo = (error as NSError).userInfo
+      let exceptionMessage = userInfo["WKJavaScriptExceptionMessage"] as? String ?? "NA"
+      Logger.webViewLogger.error("[MarkdownView][Error] \(error), exceptionMessage: \(exceptionMessage)")
     }
   }
   

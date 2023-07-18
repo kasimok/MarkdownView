@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "aecaudiostream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kasimok/AECAudioStream",
+      "state" : {
+        "revision" : "c5d16bbb9f3c4282523d6d6039c0009480b72c25",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
